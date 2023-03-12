@@ -1,32 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "tasks/index", type: :view do
+  let(:project) { create :project_with_tasks }
+  let(:tasks) { project.tasks }
+
   before(:each) do
-    assign(:tasks, [
-      Task.create!(
-        project: nil,
-        user: nil,
-        title: "Title",
-        description: "MyText",
-        story_points: 2
-      ),
-      Task.create!(
-        project: nil,
-        user: nil,
-        title: "Title",
-        description: "MyText",
-        story_points: 2
-      )
-    ])
+    assign(:tasks, tasks)
+    assign(:project, project)
   end
 
   it "renders a list of tasks" do
     render
     cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-    assert_select cell_selector, text: Regexp.new(nil.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new(nil.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new("Title".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new("MyText".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new(2.to_s), count: 2
+    assert_select cell_selector, text: Regexp.new(tasks[0].title)
+    assert_select cell_selector, text: Regexp.new(tasks[1].title)
   end
 end

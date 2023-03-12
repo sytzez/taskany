@@ -9,6 +9,16 @@
 #
 FactoryBot.define do
   factory :project do
-    title { "MyString" }
+    title { 'Project title' }
+
+    factory :project_with_tasks do
+      transient do
+        tasks_count { 5 }
+      end
+
+      tasks do
+        Array.new(tasks_count) { association :task }
+      end
+    end
   end
 end

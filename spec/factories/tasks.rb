@@ -13,10 +13,12 @@
 #
 FactoryBot.define do
   factory :task do
-    project { nil }
-    user { nil }
-    title { "MyString" }
-    description { "MyText" }
+    project
+    assigned_user factory: :user
+    title { generate :task_title }
+    description { "Lorem ipsum" }
     story_points { 1 }
   end
+
+  sequence(:task_title) { |n| "Task #{n}" }
 end
