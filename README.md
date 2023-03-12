@@ -17,11 +17,13 @@ Taskany is a Jira/Trello/Clickup/etc. clone for me to try out Rail's Turbo funct
 ## Data model
 
 - User: a standard devise User
+  - tasks: hasMany(Task)
 - Project
   - title
   - tasks: hasMany(Task)
 - Task
   - project: belongsTo(Project)
+  - assigned_user: belongsTo(User)
   - title
   - description
   - storyPoints
