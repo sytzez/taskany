@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    redirect_to project_tasks_url(@project)
   end
 
   def new
