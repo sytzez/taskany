@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks
-  resources :projects
   devise_for :users
+
+  resources :projects do
+    resources :tasks
+  end
 
   root 'projects#index'
 end
