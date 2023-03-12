@@ -63,6 +63,6 @@ class TasksController < ApplicationController
   end
 
     def task_params
-      params.require(:task).permit(:user_id, :title, :description, :story_points)
+      params.require(:task).permit(:assigned_user_id, :title, :description, :story_points)
     end
 end
