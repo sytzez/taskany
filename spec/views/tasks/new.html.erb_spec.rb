@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "tasks/new", type: :view do
-  let(:task) { create :task }
-  let(:project) { task.project }
+  let(:project) { create :project }
+  let(:task) { project.tasks.build }
 
   before(:each) do
     assign(:task, task)
