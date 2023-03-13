@@ -1,17 +1,16 @@
 .task {
+    // Measurements
     padding: 1em;
 
+    // Layout
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 1em;
 
+    // Colors
     background-color: lightblue;
-}
 
-.task h2 {
-    margin: 0
-}
-
-.task p {
-    margin: 0
+    h2, p {
+        margin: 0;
+    }
 }
