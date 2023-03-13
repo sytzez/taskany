@@ -12,8 +12,10 @@
 #  updated_at             :datetime         not null
 #
 class User < ApplicationRecord
+  # Associations
   has_many :tasks, foreign_key: :assigned_user_id, class_name: 'Task'
 
+  # Macros
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

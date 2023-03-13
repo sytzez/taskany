@@ -20,9 +20,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_221418) do
   create_table "tasks", force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "assigned_user_id", null: false
-    t.string "title"
-    t.text "description"
-    t.integer "story_points"
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "story_points", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assigned_user_id"], name: "index_tasks_on_assigned_user_id"

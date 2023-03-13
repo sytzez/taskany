@@ -8,7 +8,9 @@
 #  updated_at :datetime         not null
 #
 class Project < ApplicationRecord
+  # Associations
   has_many :tasks, dependent: :destroy
 
+  # Validations
   validates :title, presence: true
 end
