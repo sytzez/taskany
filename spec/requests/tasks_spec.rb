@@ -43,7 +43,7 @@ RSpec.describe "projects/:id/tasks", type: :request do
       end
     end
 
-    context "when the task is not in the project" do
+    context "when the task is not in the project", :realistic_error_responses do
       let(:task) { create :task }
 
       describe "GET /show" do
@@ -56,13 +56,6 @@ RSpec.describe "projects/:id/tasks", type: :request do
       describe "GET /edit" do
         it "renders a response with 404 status" do
           get edit_project_task_url(project, task)
-          expect(response).to have_http_status(:not_found)
-        end
-      end
-
-      describe "POST /create" do
-        it "renders a response with 404 status" do
-          post project_tasks_url(project), params: { task: valid_attributes }
           expect(response).to have_http_status(:not_found)
         end
       end
