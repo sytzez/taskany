@@ -2,13 +2,21 @@
 
 <h1><%= @project.title %></h1>
 
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-    <p>
-      <%= link_to "Show this task", project_task_path(@project, task) %>
-    </p>
-  <% end %>
+<div id="tasks" class="board">
+  <div class="board__column">
+    <h1>Unstarted</h1>
+    <%= render @tasks %>
+  </div>
+
+  <div class="board__column">
+    <h1>In progress</h1>
+    <%= render @tasks %>
+  </div>
+
+  <div class="board__column">
+    <h1>Done</h1>
+    <%= render @tasks %>
+  </div>
 </div>
 
 <%= link_to "New task", new_project_task_path(@project) %>

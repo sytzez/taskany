@@ -1,0 +1,10 @@
+.board {
+  // Layout
+  display: flex;
+
+  &__column {
+    // Measurements
+    margin-right: .5em;
+    min-width: 20em;
+  }
+}
