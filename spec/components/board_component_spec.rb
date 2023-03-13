@@ -3,13 +3,31 @@
 require "rails_helper"
 
 RSpec.describe BoardComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { described_class.new(tasks: project.tasks) }
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  before { render_inline subject }
+
+  context "when the project is empty" do
+    let(:project) { create :project }
+
+    it "renders a column for each task state" do
+      expect(page).to have_css ".board .column", count: 8
+    end
+
+    it "renders no tasks" do
+      expect(page).not_to have_css ".task"
+    end
+  end
+
+  context "when the project has tasks" do
+    let(:project) { create :project_with_tasks }
+
+    it "renders a column for each task state" do
+      expect(page).to have_css ".board .column", count: 8
+    end
+
+    it "renders each task exactly once" do
+      expect(page).to have_css ".task", count: project.tasks.count
+    end
+  end
 end

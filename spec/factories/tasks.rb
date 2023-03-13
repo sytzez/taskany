@@ -18,6 +18,7 @@ FactoryBot.define do
     title { generate :task_title }
     description { "Lorem ipsum" }
     story_points { 1 }
+    traits_for_enum :status
   end
 
   sequence(:task_title) { |n| "Task #{n}" }
