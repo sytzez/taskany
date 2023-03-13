@@ -4,7 +4,7 @@ RSpec.describe "projects/:id/tasks", type: :request do
 
   let(:user) { create :user }
 
-  let(:project) { create :project_with_tasks }
+  let!(:project) { create :project_with_tasks }
 
   let(:task) { project.tasks.first }
 
