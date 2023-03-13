@@ -1,27 +1,11 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Project:</strong>
-    <%= task.project_id %>
-  </p>
+<article class="task" id="<%= dom_id task %>">
 
-  <p>
-    <strong>User:</strong>
-    <%= task.assigned_user_id %>
-  </p>
+  <h2 class="title"><%= task.title %></h2>
 
-  <p>
-    <strong>Title:</strong>
-    <%= task.title %>
-  </p>
+  <%= link_to "Edit", edit_project_task_path(task.project, task) %>
 
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
+  <p class="user-email"><%= task.assigned_user&.email || "unknown" %></p>
 
-  <p>
-    <strong>Story points:</strong>
-    <%= task.story_points %>
-  </p>
+  <p class="story-points"><%= task.story_points %></p>
 
-</div>
+</article>

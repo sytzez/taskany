@@ -1,0 +1,17 @@
+.task {
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1em;
+
+    background-color: lightblue;
+}
+
+.task h2 {
+    margin: 0
+}
+
+.task p {
+    margin: 0
+}
