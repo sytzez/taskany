@@ -2,7 +2,9 @@
 
 <h1><%= @project.title %></h1>
 
-<%= render(BoardComponent.new(tasks: @tasks)) %>
+<turbo-frame id="board">
+  <%= render(BoardComponent.new(tasks: @tasks)) %>
+</turbo-frame>
 
 <%= link_to "New task", new_project_task_path(@project) %>
 

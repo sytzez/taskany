@@ -1,6 +1,8 @@
 <h1>Editing task</h1>
 
-<%= render "form", task: @task %>
+<turbo-frame id="task_<%= @task.id %>">
+  <%= render "form", task: @task %>
+</turbo-frame>
 
 <br>
 

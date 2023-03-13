@@ -1,11 +1,13 @@
-<article class="task" id="<%= dom_id task %>">
+<turbo-frame id="task_<%= task.id %>">
+  <article class="task" id="<%= dom_id task %>">
 
-  <h2 class="task__title"><%= task.title %></h2>
+    <h2 class="task__title"><%= task.title %></h2>
 
-  <%= link_to "Edit", edit_project_task_path(task.project, task) %>
+    <%= link_to "Edit", edit_project_task_path(task.project, task), "data-turbo-frame": "_self" %>
 
-  <p class="task__user-email"><%= task.assigned_user&.email || "unknown" %></p>
+    <p class="task__user-email"><%= task.assigned_user&.email || "unknown" %></p>
 
-  <p class="task__story-points"><%= task.story_points %></p>
+    <p class="task__story-points"><%= task.story_points %></p>
 
-</article>
+  </article>
+</turbo-frame>
