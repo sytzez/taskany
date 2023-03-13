@@ -39,9 +39,9 @@ RSpec.describe "projects/:id/tasks", type: :request do
     end
 
     describe "GET /show" do
-      it "renders a successful response" do
+      it "renderects to the project tasks page" do
         get project_task_url(project, task)
-        expect(response).to be_successful
+        expect(response).to redirect_to(project_tasks_url(project))
       end
     end
 
