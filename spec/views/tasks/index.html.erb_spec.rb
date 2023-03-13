@@ -11,8 +11,7 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders a list of tasks" do
     render
-    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-    assert_select cell_selector, text: Regexp.new(tasks[0].title)
-    assert_select cell_selector, text: Regexp.new(tasks[1].title)
+    assert_select 'h2', text: Regexp.new(tasks[0].title)
+    assert_select 'h2', text: Regexp.new(tasks[1].title)
   end
 end

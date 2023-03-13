@@ -32,6 +32,11 @@
   </div>
 
   <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, Task.statuses.keys.map { |s| [s.humanize, s] } %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

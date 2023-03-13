@@ -12,6 +12,7 @@ RSpec.describe "tasks/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(Regexp.new(task.title))
-    expect(rendered).to match(Regexp.new(task.description))
+    expect(rendered).to match(Regexp.new(task.story_points.to_s))
+    expect(rendered).to match(Regexp.new(task.assigned_user.email))
   end
 end
