@@ -2,22 +2,7 @@
 
 <h1><%= @project.title %></h1>
 
-<div id="tasks" class="board">
-  <div class="board__column">
-    <h1>Unstarted</h1>
-    <%= render @tasks %>
-  </div>
-
-  <div class="board__column">
-    <h1>In progress</h1>
-    <%= render @tasks %>
-  </div>
-
-  <div class="board__column">
-    <h1>Done</h1>
-    <%= render @tasks %>
-  </div>
-</div>
+<%= render(BoardComponent.new(tasks: @tasks)) %>
 
 <%= link_to "New task", new_project_task_path(@project) %>
 

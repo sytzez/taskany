@@ -14,6 +14,7 @@ RSpec.describe "projects/:id/tasks", type: :request do
       title: 'A title',
       description: 'A description',
       story_points: 1,
+      status: 'on_hold',
     }
   end
 
@@ -23,6 +24,7 @@ RSpec.describe "projects/:id/tasks", type: :request do
       title: '',
       description: '',
       story_points: 0,
+      status: '',
     }
   end
 
@@ -127,6 +129,7 @@ RSpec.describe "projects/:id/tasks", type: :request do
           expect(task.title).to eq valid_attributes[:title]
           expect(task.description).to eq valid_attributes[:description]
           expect(task.story_points).to eq valid_attributes[:story_points]
+          expect(task.status).to eq valid_attributes[:status]
         end
 
         it "redirects to the task" do
