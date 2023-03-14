@@ -1,7 +1,7 @@
 <turbo-frame id="task_<%= task.id %>">
   <article class="task" id="<%= dom_id task %>">
 
-    <h2 class="task__title"><%= task.title %></h2>
+    <h3 class="task__title"><%= task.title %></h3>
 
     <%= link_to "Edit", edit_project_task_path(task.project, task), "data-turbo-frame": "_self" %>
 
