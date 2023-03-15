@@ -2,7 +2,7 @@
 
 > Get more done with Taskany's project management tools
 
-Taskany is a Jira/Trello/Clickup/etc. clone for me to try out Rail's Turbo functionalities.
+Taskany is a Jira/Trello/Clickup/etc. clone for me to try out Rails' Turbo functionalities.
 
 ## Features
 
