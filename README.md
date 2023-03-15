@@ -16,7 +16,7 @@ Taskany is a Jira/Trello/Clickup/etc. clone for me to try out Rail's Turbo funct
 
 ## Technologies used
 
-`Rails` `Sass` `ViewComponent` `Devise` `Rspec` `FactoryBot`
+`Rails` `Hotwire` `Sass` `ViewComponent` `Devise` `Rspec` `FactoryBot`
 
 ## Data model
 
