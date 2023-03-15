@@ -31,4 +31,7 @@ class Task < ApplicationRecord
   # Validations
   validates :title, :description, :story_points, :status, presence: true
   validates :story_points, numericality: { greater_than_or_equal_to: 0 }
+
+  # Callbacks
+  after_commit TaskCallbacks
 end
