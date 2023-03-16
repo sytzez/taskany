@@ -3,9 +3,7 @@
 require "rails_helper"
 
 RSpec.describe 'Projects', type: :feature do
-  before do
-    sign_in create :user
-  end
+  before { sign_in create :user }
 
   it 'creates a new project' do
     visit projects_path
