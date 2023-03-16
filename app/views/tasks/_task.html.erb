@@ -7,7 +7,7 @@
 
     <p class="task__user-email"><%= task.assigned_user&.email || "unknown" %></p>
 
-    <%= link_to "✏️", edit_project_task_path(task.project, task), "data-turbo-frame": "_self" %>
+    <%= link_to "✏️", edit_project_task_path(task.project, task), "data-turbo-frame": "_self", class: 'plain-link' %>
 
   </article>
 <% end %>
