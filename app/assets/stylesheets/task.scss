@@ -8,8 +8,9 @@
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 1em;
 
-    // Colors
-    background-color: lightblue;
+    // Effects
+    border-radius: .5em;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 
     h3, p {
         text-overflow: ellipsis;
@@ -18,7 +19,12 @@
         margin: 0;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     &__story-points {
         font-weight: bold;
+        text-align: right;
     }
 }

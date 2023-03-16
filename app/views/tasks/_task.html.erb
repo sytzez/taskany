@@ -3,11 +3,11 @@
 
     <h3 class="task__title"><%= task.title %></h3>
 
-    <%= link_to "Edit", edit_project_task_path(task.project, task), "data-turbo-frame": "_self" %>
+    <p class="task__story-points"><%= task.story_points %></p>
 
     <p class="task__user-email"><%= task.assigned_user&.email || "unknown" %></p>
 
-    <p class="task__story-points"><%= task.story_points %></p>
+    <%= link_to "✏️", edit_project_task_path(task.project, task), "data-turbo-frame": "_self" %>
 
   </article>
 <% end %>
