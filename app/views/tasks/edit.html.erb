@@ -3,5 +3,5 @@
 <%= turbo_frame_tag @task do %>
   <%= render "form", task: @task %>
 
-  <%= link_to 'Cancel', project_tasks_path(@task) %>
+  <%= link_to 'Cancel', project_tasks_path(@task.project) %>
 <% end %>
