@@ -6,5 +6,22 @@
     // Measurements
     margin-right: .5em;
     min-width: 15em;
+
+    &__header {
+      // Measurements
+      margin: 1em 0;
+
+      // Layout
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      // Colors
+      background: #eee;
+
+      h2 {
+        margin: 0;
+      }
+    }
   }
 }

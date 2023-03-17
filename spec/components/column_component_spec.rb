@@ -24,10 +24,14 @@ RSpec.describe ColumnComponent, type: :component do
       it "renders no tasks" do
         expect(page).not_to have_css ".task"
       end
+
+      it "shows 0 story points" do
+        expect(page).to have_text "0"
+      end
     end
 
     context "when tasks are given" do
-      let(:task_count) { 0 }
+      let(:task_count) { 5 }
       let(:tasks) { Array.new(task_count) { create :task } }
 
       it "renders the title" do
@@ -40,6 +44,10 @@ RSpec.describe ColumnComponent, type: :component do
 
       it "renders all tasks once" do
         expect(page).to have_css ".task", count: task_count
+      end
+
+      it "shows the right amount of story points" do
+        expect(page).to have_text tasks.sum(&:story_points)
       end
     end
   end

@@ -37,7 +37,7 @@ RSpec.describe 'Tasks', type: :feature do
     it 'edits a task' do
       visit project_path(task.project)
       within(".task#task_#{task.id}") do
-        click_link 'Edit'
+        click_link '✏'
       end
 
       select user.email, from: 'task[assigned_user_id]'

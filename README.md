@@ -7,12 +7,10 @@ Taskany is a Jira/Trello/Clickup/etc. clone for me to try out Rails' Turbo funct
 ## Features
 
 - Create user accounts and sign in.
-- Create projects.
-- Create tasks in a project, with descriptions and story points.
-- Assign a task to a user.
-- Put tasks in different columns by changing its status.
-- See how many story points there are in each column.
-- Live updates.
+- Create projects. [spec](/spec/features/projects_spec.rb)
+- Create tasks in a project, with descriptions and story points, and assign them to users. [spec](/spec/features/tasks_spec.rb)
+- Tasks go to different columns based on their status. Each column shows the sum of story points. [spec](/spec/components/column_component_spec.rb)
+- Live updates to the board when other people make changes.
 
 ## Technologies used
 
