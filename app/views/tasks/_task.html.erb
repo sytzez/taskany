@@ -1,9 +1,9 @@
 <%= turbo_frame_tag task do %>
   <article class="task" id="<%= dom_id task %>">
 
-    <h3 class="task__title"><%= task.title %></h3>
+    <p class="task__title"><%= task.title %></p>
 
-    <p class="task__story-points"><%= task.story_points %></p>
+    <h4 class="task__story-points"><%= task.story_points %></h4>
 
     <p class="task__user-email"><%= task.assigned_user&.email || "unknown" %></p>
 

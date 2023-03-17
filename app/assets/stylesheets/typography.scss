@@ -1,5 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@font-face {
+  font-family: 'Sono';
+  src: url('assets/Sono-Regular.ttf')
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('assets/Inter-Regular.ttf');
+}
 
 * {
-  font-family: Inter, sans-serif
+  font-family: 'Inter', sans-serif
+}
+
+h2, h4, h5 {
+  font-family: 'Sono', sans-serif;
+  font-weight: normal;
 }
