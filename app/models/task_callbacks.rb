@@ -2,7 +2,7 @@ class TaskCallbacks
   def self.after_commit(task)
     is_newly_created = task.saved_change_to_id?
 
-    if task.saved_change_to_status? || is_newly_created
+    if task.saved_change_to_status? || task.saved_change_to_story_points? || is_newly_created
       board_component = BoardComponent.new(tasks: task.project.tasks)
 
       task.broadcast_update_to "project_tasks_#{task.project.id}",
