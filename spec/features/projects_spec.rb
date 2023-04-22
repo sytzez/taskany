@@ -5,28 +5,37 @@ require 'rails_helper'
 RSpec.describe 'Projects' do
   before { sign_in create :user }
 
-  it 'creates a new project' do
-    visit projects_path
-    click_link 'New project'
+  context 'when using the new project form' do
+    before do
+      visit projects_path
+      click_link 'New project'
 
-    fill_in 'project[title]', with: 'New Project'
+      fill_in 'project[title]', with: 'New Project'
+    end
 
-    expect do
+    it 'creates a new project' do
+      expect do
+        click_button 'Create Project'
+      end.to change(Project, :count).by 1
+    end
+
+    it 'gives the new project the right title' do
       click_button 'Create Project'
-    end.to change(Project, :count).by 1
-
-    expect(Project.last.title).to eq 'New Project'
+      expect(Project.last.title).to eq 'New Project'
+    end
   end
 
-  context 'a project exists' do
-    let!(:project) { create(:project) }
+  context 'when using the edit project form' do
+    let(:project) { create(:project) }
 
-    it 'edits a project' do
+    before do
       visit project_path(project)
       click_link 'Edit project'
 
       fill_in 'project[title]', with: 'New Title'
+    end
 
+    it 'updates the project' do
       expect do
         click_button 'Update Project'
         project.reload
