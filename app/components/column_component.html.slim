@@ -1,8 +1,8 @@
-div class="w-80 border border-cyan-300 rounded-lg p-1 shadow-inner"
-  div class="flex justify-between mb-2"
+div class="w-80 border border-cyan-300 rounded-lg p-1 shadow-inner flex flex-col gap-1"
+  div class="flex justify-between mb-1"
     h2 class="font-bold"
       = @title
     h2
-      = "pts: #{@story_points}"
+      = @story_points
 
   == render @tasks
