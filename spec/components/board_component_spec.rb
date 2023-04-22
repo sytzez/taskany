@@ -3,9 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe BoardComponent, type: :component do
-  subject { described_class.new(tasks: project.tasks) }
-
-  before { render_inline subject }
+  before { render_inline described_class.new(tasks: project.tasks) }
 
   context 'when the project is empty' do
     let(:project) { create(:project) }

@@ -4,11 +4,9 @@ require 'rails_helper'
 
 RSpec.describe ColumnComponent, type: :component do
   describe 'rendered result' do
-    subject { described_class.new(title:, tasks:) }
-
     let(:title) { 'In progress' }
 
-    before { render_inline subject }
+    before { render_inline described_class.new(title:, tasks:) }
 
     context 'when no tasks are given' do
       let(:tasks) { [] }
@@ -53,17 +51,17 @@ RSpec.describe ColumnComponent, type: :component do
   end
 
   describe '#for_all_statuses' do
-    subject { described_class.for_all_statuses(tasks:) }
+    let(:components) { described_class.for_all_statuses(tasks:) }
 
     context 'when no tasks are given' do
       let(:tasks) { [] }
 
       it 'returns a column component for each task state' do
-        expect(subject.count).to eq 8
+        expect(components.count).to eq 8
       end
 
       it 'returns empty column components' do
-        rendered_results = subject.map { |column| render_inline column }
+        rendered_results = components.map { |column| render_inline column }
 
         rendered_results.each do |rendered_result|
           expect(rendered_result).not_to have_css '.task'
@@ -84,11 +82,11 @@ RSpec.describe ColumnComponent, type: :component do
       end
 
       it 'returns a column component for each task state' do
-        expect(subject.count).to eq 8
+        expect(components.count).to eq 8
       end
 
       it 'puts the tasks in the right columns' do
-        rendered_results = subject.map { |column| render_inline column }
+        rendered_results = components.map { |column| render_inline column }
 
         [3, 0, 2, 0, 0, 1, 0, 0].each_with_index do |expected_tasks_count, i|
           expect(rendered_results[i]).to have_css '.task', count: expected_tasks_count
