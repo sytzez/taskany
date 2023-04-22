@@ -15,7 +15,7 @@ RSpec.describe 'GET /projects/:id/edit' do
 
     context 'when the project does not exist' do
       it 'returns a not found error' do
-        expect { edit_project_url(-1) }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { get edit_project_url(-1) }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
