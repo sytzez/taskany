@@ -14,7 +14,7 @@ Taskany is a Jira/Trello/Clickup/etc. clone I built to try out Rails' Turbo func
 - Tasks go to different columns based on their status. Each column shows the sum of story points.
   ([spec](/spec/components/column_component_spec.rb))
 - Live updates to the board when other people make changes.
-- Functions with JavaScript disabled.
+- Fully functional with JavaScript disabled.
 
 ## Technologies used
 
