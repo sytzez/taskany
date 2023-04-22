@@ -4,8 +4,6 @@
 
 Taskany is a Jira/Trello/Clickup/etc. clone I built to try out Rails' Turbo functionalities.
 
-![A Taskany board showing a task being edited](/taskany.png)
-
 ## Features
 
 - Create user accounts and sign in.
@@ -21,6 +19,11 @@ Taskany is a Jira/Trello/Clickup/etc. clone I built to try out Rails' Turbo func
 ## Technologies used
 
 `Rails` `Hotwire` `Sass` `ViewComponent` `Devise` `Rspec` `FactoryBot`
+
+## Code quality
+
+- Rubocop: no offenses ([.rubocop.yml](.rubocop.yml))
+- Rspec: 100% coverage ([coverage report](https://sytzez.github.io/taskany))
 
 ## Data model
 
