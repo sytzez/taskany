@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe 'Tasks', type: :feature do
+RSpec.describe 'Tasks' do
   before { sign_in create :user }
 
-  let!(:project) { create :project }
-  let!(:user) { create :user }
+  let!(:project) { create(:project) }
+  let!(:user) { create(:user) }
 
   it 'creates a new task' do
     visit project_path(project)
@@ -18,21 +18,21 @@ RSpec.describe 'Tasks', type: :feature do
     fill_in 'task[story_points]', with: 3
     select 'In progress', from: 'task[status]'
 
-    expect {
+    expect do
       click_button 'Create Task'
       project.reload
-    }.to change(project.tasks, :count).by 1
+    end.to change(project.tasks, :count).by 1
 
     task = project.tasks.last
     expect(task.assigned_user).to eq user
     expect(task.title).to eq 'New Task'
     expect(task.description).to eq 'About this task'
     expect(task.story_points).to eq 3
-    expect(task.in_progress?).to be_truthy
+    expect(task).to be_in_progress
   end
 
   context 'a task exists' do
-    let!(:task) { create :task }
+    let!(:task) { create(:task) }
 
     it 'edits a task' do
       visit project_path(task.project)
@@ -53,7 +53,7 @@ RSpec.describe 'Tasks', type: :feature do
       expect(task.title).to eq 'New Task'
       expect(task.description).to eq 'About this task'
       expect(task.story_points).to eq 3
-      expect(task.in_progress?).to be_truthy
+      expect(task).to be_in_progress
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tasks
@@ -15,8 +17,8 @@ FactoryBot.define do
   factory :task do
     project
     assigned_user factory: :user
-    title { generate :task_title }
-    description { "Lorem ipsum" }
+    title { generate(:task_title) }
+    description { 'Lorem ipsum' }
     story_points { 1 }
     traits_for_enum :status
   end

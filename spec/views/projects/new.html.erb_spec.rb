@@ -1,18 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "projects/new", type: :view do
-  before(:each) do
+RSpec.describe 'projects/new' do
+  before do
     assign(:project, Project.new(
-      title: "MyString"
-    ))
+                       title: 'MyString'
+                     ))
   end
 
-  it "renders new project form" do
+  it 'renders new project form' do
     render
 
-    assert_select "form[action=?][method=?]", projects_path, "post" do
-
-      assert_select "input[name=?]", "project[title]"
+    assert_select 'form[action=?][method=?]', projects_path, 'post' do
+      assert_select 'input[name=?]', 'project[title]'
     end
   end
 end

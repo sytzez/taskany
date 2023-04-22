@@ -1,33 +1,33 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe BoardComponent, type: :component do
   subject { described_class.new(tasks: project.tasks) }
 
   before { render_inline subject }
 
-  context "when the project is empty" do
-    let(:project) { create :project }
+  context 'when the project is empty' do
+    let(:project) { create(:project) }
 
-    it "renders a column for each task state" do
-      expect(page).to have_css ".board .column", count: 8
+    it 'renders a column for each task state' do
+      expect(page).to have_css '.board .column', count: 8
     end
 
-    it "renders no tasks" do
-      expect(page).not_to have_css ".task"
+    it 'renders no tasks' do
+      expect(page).not_to have_css '.task'
     end
   end
 
-  context "when the project has tasks" do
-    let(:project) { create :project_with_tasks }
+  context 'when the project has tasks' do
+    let(:project) { create(:project_with_tasks) }
 
-    it "renders a column for each task state" do
-      expect(page).to have_css ".board .column", count: 8
+    it 'renders a column for each task state' do
+      expect(page).to have_css '.board .column', count: 8
     end
 
-    it "renders each task exactly once" do
-      expect(page).to have_css ".task", count: project.tasks.count
+    it 'renders each task exactly once' do
+      expect(page).to have_css '.task', count: project.tasks.count
     end
   end
 end

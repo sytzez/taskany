@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tasks
@@ -21,7 +23,7 @@ class Task < ApplicationRecord
     internal_review: 4,
     client_review: 5,
     ready_for_live: 6,
-    done: 7,
+    done: 7
   }
 
   # Associations

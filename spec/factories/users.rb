@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -13,8 +15,8 @@
 #
 FactoryBot.define do
   factory :user do
-    email { generate :user_email }
-    password { "password" }
+    email { generate(:user_email) }
+    password { 'password' }
   end
 
   sequence(:user_email) { |n| "test#{n}@test.test" }

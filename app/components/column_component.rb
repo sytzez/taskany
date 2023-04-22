@@ -4,7 +4,7 @@ class ColumnComponent < ViewComponent::Base
   def initialize(title:, tasks:)
     @title = title
     @tasks = tasks
-    @story_points = tasks.sum { |t| t.story_points }
+    @story_points = tasks.sum(&:story_points)
   end
 
   # Get an enumerable of columns, one for each status
@@ -12,7 +12,7 @@ class ColumnComponent < ViewComponent::Base
     Task.statuses.keys.map do |status|
       new(
         title: status.humanize,
-        tasks: tasks.filter { |t| t.status == status },
+        tasks: tasks.filter { |t| t.status == status }
       )
     end
   end
