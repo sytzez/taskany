@@ -2,8 +2,8 @@
 
 div class="flex justify-between items-start"
   == render @project
-  == link_to 'All projects', \
-          projects_path, \
+  == link_to 'All projects',
+          projects_path,
           class: 'rounded-lg border border-cyan-300 text-center px-4 py-2 shadow-md hover:bg-cyan-100'
 
 == link_to 'New task', new_project_task_path(@project)

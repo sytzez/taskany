@@ -1,10 +1,11 @@
-p style="color: green" = notice
+h1 class="font-bold text-xl mb-4" Projects
 
-h1 Projects
+div class="inline-flex flex-col gap-2"
+  == link_to 'New project',
+          new_project_path,
+          class: 'rounded-lg bg-yellow-300 text-center px-4 py-2 cursor-pointer shadow-md hover:bg-yellow-400 mb-2'
 
-div id="projects"
   - @projects.each do |project|
-    == render project
-    p == link_to 'Show this project', project
-
-== link_to 'New project', new_project_path
+    == link_to project.title,
+            project_tasks_path(project),
+            class: 'rounded-lg border border-cyan-300 text-center px-4 py-2 shadow-md hover:bg-cyan-100'
