@@ -25,6 +25,10 @@ Taskany is a Jira/Trello/Clickup/etc. clone I built to try out Rails' Turbo func
 - Rubocop: no offenses ([.rubocop.yml](.rubocop.yml))
 - Rspec: 100% coverage ([coverage report](https://sytzez.github.io/taskany))
 
+## Screenshot
+
+![A project board in Taskany](new_screenshot.png)
+
 ## Data model
 
 - User: a standard devise User
