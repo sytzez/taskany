@@ -15,7 +15,11 @@
 #
 class User < ApplicationRecord
   # Associations
-  has_many :tasks, foreign_key: :assigned_user_id, class_name: 'Task'
+  has_many :tasks,
+           foreign_key: :assigned_user_id,
+           class_name: 'Task',
+           dependent: :destroy,
+           inverse_of: :assigned_user
 
   # Macros
   devise :database_authenticatable, :registerable,
