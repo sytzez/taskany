@@ -10,9 +10,7 @@ RSpec.describe 'Board live updates' do
   it 'updates when a new task has been added', js: true do
     visit project_path(project)
 
-    task = build(:task)
-    task.project = project
-    task.save!
+    task = create(:task, project:)
 
     find("#task_#{task.id}")
 
