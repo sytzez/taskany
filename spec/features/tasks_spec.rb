@@ -8,33 +8,37 @@ RSpec.describe 'Tasks' do
   let!(:project) { create(:project) }
   let!(:user) { create(:user) }
 
-  it 'creates a new task' do
-    visit project_path(project)
-    click_link 'New task'
+  context 'when using the new task form' do
+    before do
+      visit project_path(project)
+      click_link 'New task'
 
-    select user.email, from: 'task[assigned_user_id]'
-    fill_in 'task[title]', with: 'New Task'
-    fill_in 'task[description]', with: 'About this task'
-    fill_in 'task[story_points]', with: 3
-    select 'In progress', from: 'task[status]'
+      select user.email, from: 'task[assigned_user_id]'
+      fill_in 'task[title]', with: 'New Task'
+      fill_in 'task[description]', with: 'About this task'
+      fill_in 'task[story_points]', with: 3
+      select 'In progress', from: 'task[status]'
+    end
 
-    expect do
+    it 'creates a new task' do
+      expect do
+        click_button 'Create Task'
+        project.reload
+      end.to change(project.tasks, :count).by 1
+    end
+
+    it 'gives the task the right values' do
       click_button 'Create Task'
-      project.reload
-    end.to change(project.tasks, :count).by 1
-
-    task = project.tasks.last
-    expect(task.assigned_user).to eq user
-    expect(task.title).to eq 'New Task'
-    expect(task.description).to eq 'About this task'
-    expect(task.story_points).to eq 3
-    expect(task).to be_in_progress
+      expect(project.tasks.last).to have_attributes(assigned_user: user, title: 'New Task',
+                                                    description: 'About this task', story_points: 3,
+                                                    in_progress?: true)
+    end
   end
 
-  context 'a task exists' do
-    let!(:task) { create(:task) }
+  context 'when using the edit task form' do
+    let(:task) { create(:task) }
 
-    it 'edits a task' do
+    before do
       visit project_path(task.project)
       within(".task#task_#{task.id}") do
         click_link '✏'
@@ -45,15 +49,13 @@ RSpec.describe 'Tasks' do
       fill_in 'task[description]', with: 'About this task'
       fill_in 'task[story_points]', with: 3
       select 'In progress', from: 'task[status]'
+    end
 
+    it 'updates the task' do
       click_button 'Update Task'
-      task.reload
-
-      expect(task.assigned_user).to eq user
-      expect(task.title).to eq 'New Task'
-      expect(task.description).to eq 'About this task'
-      expect(task.story_points).to eq 3
-      expect(task).to be_in_progress
+      expect(task.reload).to have_attributes(assigned_user: user, title: 'New Task',
+                                             description: 'About this task', story_points: 3,
+                                             in_progress?: true)
     end
   end
 end
