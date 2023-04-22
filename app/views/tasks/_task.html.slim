@@ -12,4 +12,4 @@
     div class="flex justify-between gap-2"
       p class="italic truncate text-ellipsis"
         = task.assigned_user&.email || 'unknown'
-      == link_to '✏️', edit_project_task_path(task.project, task), 'data-turbo-frame': '_self', class: 'plain-link'
+      == link_to '✏️', edit_project_task_path(task.project, task)

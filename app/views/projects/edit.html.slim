@@ -1,10 +1,8 @@
-h1 Edit project
+h1 class="font-bold text-xl mb-4" Edit project
 
-== render 'form', project: @project
-
-br
-
-div
-  == link_to 'Show this project', @project
-  |
-  == link_to 'Back to projects', projects_path
+== turbo_frame_tag @project do
+  div class="flex gap-1 items-start"
+    == render 'form', project: @project
+    == link_to 'Cancel', \
+            projects_path, \
+            class: 'rounded-lg border border-cyan-300 text-center px-4 py-2 shadow-md hover:bg-cyan-100'
