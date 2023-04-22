@@ -55,3 +55,10 @@ Taskany is a Jira/Trello/Clickup/etc. clone I built to try out Rails' Turbo func
   ([component](/app/components/board_component.rb))
 - Column: shows tasks for one status. Shows the total number of story points.
   ([component](/app/components/column_component.rb))
+
+## TODO
+
+- Currently, when a task is moved to a different lane, the whole board is live-updated for everyone, 
+  causing the changes of tasks that are being edited to be lost. 
+  To solve this, we should use Hotwire's append and remove methods to
+  surgically live-update the changed columns without touching any other tasks on the board.
