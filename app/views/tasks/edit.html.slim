@@ -1,9 +1,9 @@
-h1 class="font-bold mb-4" Edit task
+h1 class="font-bold text-xl mb-4" Edit task
 
 div class="max-w-2xl"
   == turbo_frame_tag @task do
-    article class="bg-cyan-300 p-2 rounded-lg flex flex-col gap-1 shadow-inner border border-cyan-400"
+    article class="bg-cyan-300 p-2 rounded-lg flex flex-col gap-1 shadow-inner border border-cyan-400 hover:border-cyan-600"
       == render 'form', task: @task
       == link_to 'Cancel', \
               project_tasks_path(@task.project), \
-              class: 'rounded-lg border border-cyan-600 text-center p-2 shadow-md hover:bg-cyan-400'
+              class: 'rounded-lg border border-cyan-500 text-center p-2 shadow-md hover:bg-cyan-400'

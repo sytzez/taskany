@@ -1,3 +1,4 @@
-div class="flex shrink-0 justify-between gap-1"
-  - @columns.each do |column|
-    == render column
+div class="overflow-x-auto"
+  div class="flex shrink-0 justify-between gap-1"
+    - @columns.each do |column|
+      == render column
