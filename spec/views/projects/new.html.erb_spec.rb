@@ -7,11 +7,10 @@ RSpec.describe 'projects/new' do
     assign(:project, Project.new(
                        title: 'MyString'
                      ))
+    render
   end
 
   it 'renders new project form' do
-    render
-
     assert_select 'form[action=?][method=?]', projects_path, 'post' do
       assert_select 'input[name=?]', 'project[title]'
     end

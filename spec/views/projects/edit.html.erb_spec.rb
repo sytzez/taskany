@@ -11,11 +11,10 @@ RSpec.describe 'projects/edit' do
 
   before do
     assign(:project, project)
+    render
   end
 
   it 'renders the edit project form' do
-    render
-
     assert_select 'form[action=?][method=?]', project_path(project), 'post' do
       assert_select 'input[name=?]', 'project[title]'
     end

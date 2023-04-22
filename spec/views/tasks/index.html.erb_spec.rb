@@ -9,10 +9,10 @@ RSpec.describe 'tasks/index' do
   before do
     assign(:tasks, tasks)
     assign(:project, project)
+    render
   end
 
   it 'renders a list of tasks' do
-    render
     assert_select 'p', text: Regexp.new(tasks[0].title)
     assert_select 'p', text: Regexp.new(tasks[1].title)
   end

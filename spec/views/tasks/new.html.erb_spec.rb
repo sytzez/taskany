@@ -9,18 +9,14 @@ RSpec.describe 'tasks/new' do
   before do
     assign(:task, task)
     assign(:project, project)
+    render
   end
 
   it 'renders new task form' do
-    render
-
     assert_select 'form[action=?][method=?]', project_tasks_path(project), 'post' do
       assert_select 'input[name=?]', 'task[title]'
-
       assert_select 'textarea[name=?]', 'task[description]'
-
       assert_select 'input[name=?]', 'task[story_points]'
-
       assert_select 'select[name=?]', 'task[status]'
     end
   end
