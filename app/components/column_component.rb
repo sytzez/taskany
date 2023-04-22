@@ -2,6 +2,8 @@
 
 class ColumnComponent < ViewComponent::Base
   def initialize(title:, tasks:)
+    super
+
     @title = title
     @tasks = tasks
     @story_points = tasks.sum(&:story_points)

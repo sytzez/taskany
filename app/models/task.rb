@@ -36,4 +36,20 @@ class Task < ApplicationRecord
 
   # Callbacks
   after_commit TaskCallbacks
+
+  # Methods
+  def broadcast_task_update
+    broadcast_update_to "project_tasks_#{project.id}",
+                        partial: 'tasks/task',
+                        locals: { task: self },
+                        target: "task_#{id}"
+  end
+
+  def broadcast_board_update
+    board_component = BoardComponent.new(tasks: project.tasks)
+
+    broadcast_update_to "project_tasks_#{project.id}",
+                        html: ApplicationController.render(board_component),
+                        target: 'board'
+  end
 end
