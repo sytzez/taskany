@@ -1,12 +1,15 @@
 == turbo_stream_from "project_tasks_#{@project.id}"
 
-div class="flex justify-between items-start"
+div class="flex justify-between items-start mb-2"
   == render @project
   == link_to 'All projects',
           projects_path,
           class: 'rounded-lg border border-cyan-300 text-center px-4 py-2 shadow-md hover:bg-cyan-100'
 
-== link_to 'New task', new_project_task_path(@project)
+== turbo_frame_tag "new_task_#{@project.id}"
+  == link_to 'New task',
+          new_project_task_path(@project),
+          class: 'inline-block rounded-lg bg-yellow-300 text-center px-4 py-2 cursor-pointer shadow-md hover:bg-yellow-400 mb-2'
 
-== turbo_frame_tag 'board' do
+== turbo_frame_tag "board_#{@project.id}" do
   == render(BoardComponent.new(tasks: @tasks))

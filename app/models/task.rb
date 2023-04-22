@@ -50,6 +50,6 @@ class Task < ApplicationRecord
 
     broadcast_update_to "project_tasks_#{project.id}",
                         html: ApplicationController.render(board_component),
-                        target: 'board'
+                        target: "board_#{project.id}"
   end
 end

@@ -1,10 +1,10 @@
 == form_with(model: [@project, task], html: { class: 'flex flex-col' }) do |form|
   - if task.errors.any?
-    div class="text-red-500"
-      h2 = pluralize(task.errors.count, 'error') + 'prohibited this task from being saved:'
+    div class="text-red-500 bg-cyan-100 p-2 mb-1 rounded-lg"
+      h2 = pluralize(task.errors.count, 'error') + ' prohibited this task from being saved:'
       ul
         - task.errors.each do |error|
-          li = error.full_message
+          li = '- ' + error.full_message
 
   == form.label :title
   == form.text_field :title, class: 'mb-1 rounded-lg border-none p-2'

@@ -1,8 +1,8 @@
 h1 class="font-bold text-xl mb-4" Edit task
 
-div class="max-w-2xl"
+div class="max-w-xl"
   == turbo_frame_tag @task do
-    article class="bg-cyan-300 p-2 rounded-lg flex flex-col gap-1 shadow-inner border border-cyan-400 hover:border-cyan-600"
+    article class="bg-cyan-300 p-2 rounded-lg flex flex-col gap-1 shadow-inner border border-cyan-400"
       == render 'form', task: @task
       == link_to 'Cancel',
               project_tasks_path(@task.project),
