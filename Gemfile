@@ -18,6 +18,7 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise'
+gem 'slim'
 gem 'view_component'
 
 gem 'rubocop-rails', require: false

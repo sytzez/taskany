@@ -1,0 +1,12 @@
+== turbo_stream_from "project_tasks_#{@project.id}"
+
+p style="color: green" = notice
+
+h1 = @project.title
+
+== link_to 'New task', new_project_task_path(@project)
+== link_to 'Edit project', edit_project_path(@project)
+== link_to 'View all projects', projects_path
+
+== turbo_frame_tag 'board' do
+  == render(BoardComponent.new(tasks: @tasks))
