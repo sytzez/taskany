@@ -10,7 +10,7 @@ html
     == stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     == javascript_importmap_tags
 
-  body
+  body class="p-2"
     - if flash[:notice].present?
       p = flash[:notice]
     - if flash[:alert].present?
