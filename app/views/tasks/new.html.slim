@@ -1,6 +1,6 @@
 h1 class="font-bold text-xl mb-4" New task
 
-== turbo_frame_tag "new_task_#{@project.id}"
+== turbo_frame_tag "new_task_#{@project.id}", target: '_top'
   article class="max-w-xl bg-cyan-300 p-2 rounded-lg flex flex-col gap-1 shadow-inner border border-cyan-400 mb-2"
     == render 'form', task: @task
     == link_to 'Cancel',

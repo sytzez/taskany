@@ -1,6 +1,6 @@
 h1 class="font-bold text-xl mb-4" Edit project
 
-== turbo_frame_tag @project do
+== turbo_frame_tag @project, target: '_top' do
   div class="flex gap-1 items-start"
     == render 'form', project: @project
     == link_to 'Cancel',
