@@ -106,7 +106,6 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -230,14 +229,6 @@ GEM
       rubocop-capybara (~> 2.17)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -260,6 +251,8 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.6.2-x64-mingw-ucrt)
     stimulus-rails (1.2.1)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.28-x64-mingw-ucrt)
       railties (>= 6.0.0)
     temple (0.10.0)
     thor (1.2.1)
@@ -313,13 +306,13 @@ DEPENDENCIES
   rspec-rails (~> 6.0.0)
   rubocop-rails
   rubocop-rspec
-  sassc-rails
   selenium-webdriver
   simplecov
   slim
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  tailwindcss-rails
   turbo-rails
   tzinfo-data
   view_component

@@ -1,5 +1,5 @@
 == turbo_frame_tag task do
-  article class="task" id="#{dom_id task}"
+  article class="shadow-lg" id="#{dom_id task}"
     p class="task__title" = task.title
     h4 class="task__story-points" = task.story_points
     p class="task__user-email" = task.assigned_user&.email || 'unknown'

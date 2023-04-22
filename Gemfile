@@ -10,7 +10,6 @@ gem 'rails', '~> 7.0.4'
 gem 'bootsnap', require: false
 gem 'importmap-rails'
 gem 'puma', '~> 5.0'
-gem 'sassc-rails'
 gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
@@ -19,6 +18,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise'
 gem 'slim'
+gem 'tailwindcss-rails'
 gem 'view_component'
 
 gem 'rubocop-rails', require: false
